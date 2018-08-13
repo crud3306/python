@@ -1,0 +1,9 @@
+<html>
+	<head></head>
+	<body>
+		<a href="/add_class/">添加</a>
+		{% for row in class_list %}
+			<div>{{row.id}} {{row.title}}</div>
+		{% endfor %}
+	</body>
+</html>
