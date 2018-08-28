@@ -11,6 +11,46 @@ https://docs.scrapy.org/en/latest/topics/commands.html （命令行命令）
 > scrapy
 
 
+原理
+----------
+scrapy engine:  
+负责组件之间数据的流转，当某个动作发生时触发事件  
+  
+scheduler:  
+接收requests，并把他们入队，以便后续的调度  
+  
+downloader:  
+负责抓取网页，并传送给引擎，之后抓取结果将传给spider   
+  
+spiders:  
+用户编补习班的可定制化的部分，负责解析response，产生items和url  
+  
+item pipeline:  
+负责处理item，典型的用途：清洗、验证、持久化  
+   
+downloader middlewares:  
+位于引擎和下载器之间的一个钩子，处理传送到下载器的requests和传送到引擎的response  
+  
+spider middlewares:  
+位于引擎和抓取器之间的一个钩子，片是抓取器的输入和输出  
+  
+  
+scrapy中的数据流执行过程    
+注：scrapy中的数据流由引擎控制
+1）引擎打开一个网站(open a domain)，找到处理该网站的spider并向该spider请求第一个要爬取的url。   
+2）引擎从spider中获取到第一个要爬取的url并在调度器(scheduler)以request调度。  
+3）引擎向调度器请求下一个要爬取的url。  
+4）调度器返回下一个要爬取的url给引擎，引擎将url通过下载中间件(请求(request)方向)转发给下载器(downloader)  
+5）一量页面下载完毕，下载器生成一个该页面的response，并将其通过下载中间件(返回(request)方向)发送给引擎  
+6）引擎从下载器中接收到response并通过spider中间件(输入方向)发送给spider外理  
+7）spider处理response并返回爬取到的item及(跟进的)新的request给引擎  
+8）引擎将(spider返回的)爬取到的item给itempipeline，将(spider返回的)request给调度器  
+9）从第二步重复直到调度器中没有更多的request，引擎关闭该网站。  
+
+
+  
+
+
 练习抓取地址
 ----------
 > http://quotes.toscrape.com
@@ -120,6 +160,11 @@ Opens the given URL in a browser, as your Scrapy spider would “see” it. Some
 例：  
 > scrapy view http://www.example.com/some/page.html  
 [ ... browser starts ... ]  
-
-
+  
+  
+  
+一些代理ip地址：  
+https://www.kuaidaili.com/free/  
+http://www.xicidaili.com/  
+http://ip.zdaye.com/FreeIPlist.html  
 
