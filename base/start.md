@@ -1,7 +1,7 @@
   
 快速入门地址  
 ------------
-https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000  
+https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000   
 http://www.runoob.com/python/python-tutorial.html  
 
 
@@ -21,23 +21,23 @@ print('hello, world')
 ------------
 输出  
 ```python
-// 最简单的输出，
-// 输出结果：hello, world
+# 最简单的输出，
 print('hello, world')
+# 输出结果：hello, world
 
-// 下面这种print()会依次打印每个字符串，遇到逗号“,”会输出一个空格
-// 输出结果：The quick brown fox jumps over the lazy dog
+# 下面这种print()会依次打印每个字符串，遇到逗号“,”会输出一个空格
 print('The quick brown fox', 'jumps over', 'the lazy dog')
+# 输出结果：The quick brown fox jumps over the lazy dog
 
-// 输出一个整型
+# 输出一个整型
 print(100)
 
-// 计算 100 + 200 然后输出，
-// 输出结果：300
+# 计算 100 + 200 然后输出，
 print(100 + 200)
+# 输出结果：300
 
-// 输出结果： 100 + 200 = 300
 print('100 + 200 =', 100 + 200)
+# 输出结果： 100 + 200 = 300
 ```
   
 输入  
@@ -46,7 +46,7 @@ print('100 + 200 =', 100 + 200)
 name = input()
 print(name)
 
-// 让对方输入前，带上提示文案
+# 让对方输入前，带上提示文案
 name = input('please enter your name: ')
 print('hello,', name)
 ```
@@ -56,19 +56,19 @@ print('hello,', name)
 -----------
 Python有五个标准的数据类型：  
   
-Numbers（数字）   
-String（字符串）  
-List（列表）  
-Tuple（元组）  
-Dictionary（字典）  
+> Numbers（数字）   
+> String（字符串）  
+> List（列表）  
+> Tuple（元组）  
+> Dictionary（字典）  
 
 
 变量声明、赋值
 -----------
 python声明变量时不用指定变量类型
 ```python
-// 数字
-// --------
+# 数字
+# --------
 a1 = 1
 a2 = 10
 print(a1, a2)
