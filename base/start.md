@@ -17,6 +17,33 @@ print('hello, world')
 > python hello.py  
   
   
+注释  
+----------
+python中单行注释采用 # 开头。  
+python 中多行注释使用三个单引号(''')或三个双引号(""")。  
+```python
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+# 文件名：test.py
+
+# 第一个注释
+print "Hello, Python!";  # 第二个注释
+
+'''
+这是多行注释，使用单引号。
+这是多行注释，使用单引号。
+这是多行注释，使用单引号。
+'''
+
+"""
+这是多行注释，使用双引号。
+这是多行注释，使用双引号。
+这是多行注释，使用双引号。
+"""
+```
+    
+  
+    
 输入与输出  input()和print()   
 ------------
 输出  
@@ -412,7 +439,7 @@ def printinfo( name, age ):
  
 #调用printinfo函数
 printinfo( age=50, name="miki" );  
-printinfo( name="miki", age=50 ); // 和上面结果一样，顺序不重要
+printinfo( name="miki", age=50 ); # 和上面结果一样，顺序不重要
 
 
 
