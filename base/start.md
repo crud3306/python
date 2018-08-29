@@ -74,51 +74,51 @@ a2 = 10
 print(a1, a2)
 
 
-// 字符串
-// --------
+# 字符串
+# --------
 var1 = 'Hello World!'
 var2 = "Python Runoob"
 print(var1, var2)
 
-// 可以用方括号来截取字符串
+# 可以用方括号来截取字符串
 print "var1[0]: ", var1[0]  // 输出 var1[0]:  H
 print "var2[1:5]: ", var2[1:5]  // 输出 var2[1:5]:  ytho
 
-// 字符串格式化
-// 注意是三个参数：
-// 参数1 中带有%xx指定格式，
-// 参数2 固定为%，
-// 参数3 如果是单个值不用带括号，如果多值需带括事情且用逗号分隔
+# 字符串格式化
+# 注意是三个参数：
+# 参数1 中带有%xx指定格式，
+# 参数2 固定为%，
+# 参数3 如果是单个值不用带括号，如果多值需带括事情且用逗号分隔
 print "My name is %s and weight is %d kg!" % ('Zara', 21) 
 
-// python三引号允许一个字符串跨多行，字符串中可以包含换行符、制表符以及其他特殊字符。 
+# python三引号允许一个字符串跨多行，字符串中可以包含换行符、制表符以及其他特殊字符。 
 hi = '''hi 
 there'''
 print(hi)
 
 
-// 列表
-// --------
-// 与字符串的索引一样，列表索引从0开始
+# 列表
+# --------
+# 与字符串的索引一样，列表索引从0开始
 list1 = ['physics', 'chemistry', 1997, 2000]
 list2 = [1, 2, 3, 4, 5, 6, 7 ]
 
-// 使用下标索引来访问列表中的值，同样你也可以使用方括号的形式截取字符 
+# 使用下标索引来访问列表中的值，同样你也可以使用方括号的形式截取字符 
 print "list1[0]: ", list1[0]
 print "list2[1:5]: ", list2[1:5]
-// 以上语句输出结果：
-// list1[0]:  physics
-// list2[1:5]:  [2, 3, 4, 5]
+# 以上语句输出结果：
+# list1[0]:  physics
+# list2[1:5]:  [2, 3, 4, 5]
 
 
-// 使用append()方法来添加列表项
+# 使用append()方法来添加列表项
 list = []          ## 空列表
 list.append('Google')   ## 使用 append() 添加元素
 list.append('Runoob')
 print list
 
 
-// 使用del删除列表的元素
+# 使用del删除列表的元素
 list1 = ['physics', 'chemistry', 1997, 2000]
  
 print list1
@@ -127,54 +127,54 @@ print "After deleting value at index 2 : "
 print list1
 
 
-// 元组
-// ---------
-// Python的元组与列表类似，不同之处在于元组的元素不能修改。
-// 元组使用小括号，列表使用方括号。
+# 元组
+# ---------
+# Python的元组与列表类似，不同之处在于元组的元素不能修改。
+# 元组使用小括号，列表使用方括号。
 tup1 = ('physics', 'chemistry', 1997, 2000)
 tup2 = (1, 2, 3, 4, 5, 6, 7 )
  
-// 元组与字符串类似，下标索引从0开始，可以进行截取，组合
+# 元组与字符串类似，下标索引从0开始，可以进行截取，组合
 print "tup1[0]: ", tup1[0]
 print "tup2[1:5]: ", tup2[1:5]
 
-// 元组中的元素值是不允许修改的，但我们可以对元组进行连接组合
+# 元组中的元素值是不允许修改的，但我们可以对元组进行连接组合
 tup1 = (12, 34.56)
 tup2 = ('abc', 'xyz')
-// 以下修改元组元素操作是非法的。
-// tup1[0] = 100
+# 以下修改元组元素操作是非法的。
+# tup1[0] = 100
 
-tup3 = tup1 + tup2  // 创建一个新的元组
+tup3 = tup1 + tup2  # 创建一个新的元组
 print tup3
 
 
-// 元组中的元素值是不允许删除的，但我们可以使用del语句来删除整个元组	
+# 元组中的元素值是不允许删除的，但我们可以使用del语句来删除整个元组	
 tup = ('physics', 'chemistry', 1997, 2000)
 print tup
 del tup
 print "After deleting tup : "
-print tup  // 删除后再输出会报异常
+print tup  # 删除后再输出会报异常
 
 
 
-// 子典 Dictionary
-// ---------
-// 字典是另一种可变容器模型，且可存储任意类型对象。
-// 字典的每个键值 key=>value 对用冒号 : 分割，每个键值对之间用逗号 , 分割，整个字典包括在花括号{}中。
+# 子典 Dictionary
+# ---------
+# 字典是另一种可变容器模型，且可存储任意类型对象。
+# 字典的每个键值 key=>value 对用冒号 : 分割，每个键值对之间用逗号 , 分割，整个字典包括在花括号{}中。
 
 dict = {'Name': 'Zara', 'Age': 7, 'Class': 'First'};
 print "dict['Name']: ", dict['Name'];
 print "dict['Age']: ", dict['Age'];
-// 以上实例输出结果：
-// dict['Name']:  Zara
-// dict['Age']:  7
+# 以上实例输出结果：
+# dict['Name']:  Zara
+# dict['Age']:  7
 
 
-// 直接通过键值修改
+# 直接通过键值修改
 dict['Name'] = 'qianm'
 print dict['Name']
 
-// 删除
+# 删除
 del dict['Name']; # 删除键是'Name'的条目
 dict.clear();     # 清空词典所有条目
 del dict ;        # 删除词典
