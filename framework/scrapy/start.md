@@ -46,8 +46,19 @@ scrapy中的数据流执行过程
 7）spider处理response并返回爬取到的item及(跟进的)新的request给引擎  
 8）引擎将(spider返回的)爬取到的item给itempipeline，将(spider返回的)request给调度器  
 9）从第二步重复直到调度器中没有更多的request，引擎关闭该网站。  
-
-
+  
+  
+  
+scrapy爬虫项目一般开发步骤  
+---------
+scrapy startproject 项目名  
+scrapy genspider spider名称 要爬的目标域名(不带http协议)  
+编写items.py，明确需要提取的数据  
+编写spiders/xxx.py，即编写爬虫文件，处理请求和响应，以及提取数据(yield item)  
+编写pipelines.py，编写管道文件，处理spider返回item数据，比如本地持久化存储等...    
+编写settings.py，启动管道组件 ITEM_PIPELINES = {...}，以及其它相关设置  
+执行爬虫  
+  
   
 
 
@@ -78,8 +89,29 @@ scrapy中的数据流执行过程
   
 模板有哪些，可以通过下面命令查看  
 > scrapy genspider -l  
+  
+生成的spider代码为：
+----------
+```python
+import scrapy
 
+class XxxSpider(scrapy.Spider):
+	name = "xxxx"
+	allowed_domains = ["xxx.com"]
+	start_urls = (
+		"http://www.xxx.cn/",
+	)
 
+	def parse(self, response):
+		pass
+```
+上面的代码是通过命令自动生成的，当然我们也可以手机写上面的代码，只不过使用命令可以免去编写固定代码的麻烦。  
+要建立一个Spider，你必须用scrapy.Spider类创建一个子类，并确定了三个强制的属性和一个方法。
+> name="" 这个爬虫的识别名称，必须是唯一的，同一个scrapy项目中，不同的爬虫必须定义不同的名字。  
+> allow_domains=[]是搜索的域名范围，也就是爬虫的约束区域，规定爬虫只爬取这个域名下的网页，不存在url会被忽略。  
+> start_urls=() 爬取的URL元组/列表。爬虫从这里开始抓取数据，所以，第一次下载的数据将会从这些urls开始。其他子URL将会从这些起始URL中继承性生成。
+  
+  
 更改spider代码：
 class ...
      ...
@@ -99,7 +131,7 @@ class ...
 执行只输出过程与统计结果，但不保存  
 > scrapy crawl quotes  
   
-执行，并保存结果  
+执行，并保存结果，四种保存格式：    
 > scrapy crawl quotes -o quotes.json    
 > scrapy crawl quotes -o quotes.csv  
 > scrapy crawl quotes -o quotes.xml  
@@ -107,7 +139,7 @@ class ...
 注意：  
 -o 参数，后面通过文件后缀，自动存为各种数据格式的文件。  
   
-直接执行，并存到指定的ftp服务器上  
+甚至可指定保存到远程的ftp服务器上  
 > scrapy crawl quotes -o ftp://user:pass@ftp.example.com/pathxxx/quotes.csv  
   
   
@@ -161,6 +193,15 @@ Opens the given URL in a browser, as your Scrapy spider would “see” it. Some
 > scrapy view http://www.example.com/some/page.html  
 [ ... browser starts ... ]  
   
+  
+
+注意，如果是pythons2.x，它的默认编码是ascII，返回的数据可能会乱码。一般情况下我们可以在代码最上方添加：  
+```python
+import sys
+reload(sys)
+sys.setdefaultencoding("uft-8")
+```
+这三行代码是python2.x里解决中文乱码的万能钥匙，python3已解决了此问题，默认编码即unicode。  
   
   
 一些代理ip地址：  

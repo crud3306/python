@@ -51,6 +51,9 @@ print "Hello, Python!";  # 第二个注释
 # 最简单的输出，
 print('hello, world')
 # 输出结果：hello, world
+# 或者下面的方式输出，但要注意python3以上版本的，不能用下面的方式，需用print带括号。
+print 'hello, world' #python2才能用
+
 
 # 下面这种print()会依次打印每个字符串，遇到逗号“,”会输出一个空格
 print('The quick brown fox', 'jumps over', 'the lazy dog')
