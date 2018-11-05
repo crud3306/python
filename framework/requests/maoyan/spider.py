@@ -1,4 +1,5 @@
 from multiprocessing import Pool
+# from multiprocessing.dummy import Pool
 import requests
 from requests.exceptions import RequestException
 import json
@@ -50,4 +51,7 @@ if __name__ == '__main__':
      #     main(i*10)
      # 用进程池，多进程处理。问题是顺序会乱
      # pool = Pool()
+     # pool = Pool(4) # 可以按电脑内核数指定一个数字，比如4核电脑
      # pool.map(main, [i*10 for i in range(10)])
+
+

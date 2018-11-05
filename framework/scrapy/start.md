@@ -2,16 +2,16 @@
 ----------
 https://docs.scrapy.org/en/latest/
 https://docs.scrapy.org/en/latest/topics/commands.html （命令行命令）
-
-
-安装
+  
+  
+安装  
 ----------
-> pip3 install scrapy
-验证是否安装成功，直接在命令行执行scrapy，看是否有信息输出。
-> scrapy
-
-
-原理
+> pip3 install scrapy  
+验证是否安装成功，直接在命令行执行scrapy，看是否有信息输出。  
+> scrapy  
+  
+  
+原理  
 ----------
 scrapy engine:  
 负责组件之间数据的流转，当某个动作发生时触发事件  
@@ -36,7 +36,7 @@ spider middlewares:
   
   
 scrapy中的数据流执行过程    
-注：scrapy中的数据流由引擎控制
+注：scrapy中的数据流由引擎控制  
 1）引擎打开一个网站(open a domain)，找到处理该网站的spider并向该spider请求第一个要爬取的url。   
 2）引擎从spider中获取到第一个要爬取的url并在调度器(scheduler)以request调度。  
 3）引擎向调度器请求下一个要爬取的url。  
@@ -61,7 +61,7 @@ scrapy genspider spider名称 要爬的目标域名(不带http协议)
   
   
 
-
+  
 练习抓取地址
 ----------
 > http://quotes.toscrape.com
@@ -192,16 +192,13 @@ Opens the given URL in a browser, as your Scrapy spider would “see” it. Some
 例：  
 > scrapy view http://www.example.com/some/page.html  
 [ ... browser starts ... ]  
+    
   
-  
-
-注意，如果是pythons2.x，它的默认编码是ascII，返回的数据可能会乱码。一般情况下我们可以在代码最上方添加：  
-```python
-import sys
-reload(sys)
-sys.setdefaultencoding("uft-8")
-```
-这三行代码是python2.x里解决中文乱码的万能钥匙，python3已解决了此问题，默认编码即unicode。  
+查看scrapy某变量值  
+-------------
+> scrapy settings --get=scrapy某变量名  
+例：  
+> scrapy settings --get=DOWNLOADER_MIDDLEWARES_BASE    
   
   
 一些代理ip地址：  

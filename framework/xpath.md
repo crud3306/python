@@ -18,6 +18,9 @@ http://www.w3school.com.cn/xpath/index.asp
 > response.xpath("//tr[@class='even']/td/a/@href").extract()  
 > response.xpath("//tr[@class='even']/td/a/text()").extract()
   
+> response.xpath("//tr[@class='even']/td/a/@href").extract_first()  
+  
+  
 ```python
 node_list = response.xpath("//tr[@class='even' or @class='odd']")
 for node in node_list:

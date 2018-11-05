@@ -507,15 +507,6 @@ __bases__ : 类的所有父类构成元素（包含了一个由所有父类组�
   
 
 
-  
-
-
-
-
-
-
-
-
    
     
 日期和时间
@@ -549,12 +540,20 @@ print time.mktime(time.strptime(a,"%a %b %d %H:%M:%S %Y"))
 
 
 ```
-
-
-
-
-
-
+  
+  
+  
+python2.x里解决中文乱码的万能钥匙  
+--------------
+注意，如果是pythons2.x，它的默认编码是ascII，返回的数据可能会乱码。一般情况下我们可以在代码最上方添加：  
+```python
+import sys
+reload(sys)
+sys.setdefaultencoding("uft-8")
+```
+这三行代码是python2.x里解决中文乱码的万能钥匙，python3已解决了此问题，默认编码即unicode。
+   
+  
 
 
 

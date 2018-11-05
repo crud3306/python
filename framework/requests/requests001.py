@@ -71,7 +71,9 @@ def requestAll(url):
 def getHTMLText(url):
 	try:
 		headers = {'user-agent':'MOZILLA/5.0'}
-		r = requests.get(url, headers=headers, timeout=30)
+		cook = {"Cookie":"xxxxx"}
+		# 注意使用header与使用cookie的方式
+		r = requests.get(url, headers=headers, cookies=cook, timeout=30)
 		# print(r.text)
 		r.raise_for_status()
 		r.encoding = r.apparent_encoding
