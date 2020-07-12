@@ -20,7 +20,9 @@ print('hello, world')
 注释  
 ----------
 python中单行注释采用 # 开头。  
-python 中多行注释使用三个单引号(''')或三个双引号(""")。  
+
+python 中多行注释使用三个单引号(''')或三个双引号(""")。 
+ 
 ```python
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-

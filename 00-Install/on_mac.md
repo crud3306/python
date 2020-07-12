@@ -7,3 +7,7 @@
 	https://www.python.org/downloads/mac-osx/ 
 
 - 方法二：如果安装了Homebrew，直接通过命令brew install python3安装即可。
+> brew install python3
+
+
+
