@@ -10,6 +10,8 @@ http://www.runoob.com/python/python-tutorial.html
 ```python
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+#coding=utf-8 
+# 编码方式，上面两种写法均可
 
 print('hello, world')
 ```

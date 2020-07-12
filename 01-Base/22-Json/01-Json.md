@@ -35,7 +35,7 @@ null			None
 
 
 
-json.dumps 与 json.loads 实例
+json.dumps 与 json.loads 处理Json字符串
 ===========
 
 Python数据结构 转换为 JSON
@@ -102,7 +102,9 @@ data2['url']:  http://www.runoob.com
 
 
 
-如果你要处理的是文件而不是字符串，你可以使用 json.dump() 和 json.load() 来编码和解码JSON数据。例如：
+如果你要处理的是文件而不是字符串，你可以使用 json.dump() 和 json.load() 来编码和解码JSON数据。
+
+json.dump() 和 json.load() 处理文件中的Json数据。
 ----------
 实例(Python 3.0+)
 ```py
@@ -114,6 +116,75 @@ with open('data.json', 'w') as f:
 with open('data.json', 'r') as f:
     data = json.load(f)
 ```
+
+
+```python
+#coding=utf-8 
+
+import os
+import json
+
+#获取目标文件夹的路径
+filedir = r'J:\NumberData\mrcnnHik\test'
+#获取文件夹中的文件名称列表 
+filenames=os.listdir(filedir)
+
+#遍历文件名
+for filename in filenames:
+  filepath = filedir+'/'+filename
+  # print(filepath)
+  after = []
+
+  # 打开文件取出数据并修改，然后存入变量
+  with open(filepath, 'r') as f:
+    data = json.load(f)
+    mask=data["MaskPolygonItem"]
+
+    for zidian in mask:
+      print(type(zidian))
+      mask[zidian]["polygon"] = '354 221,355 310,729 318,733 236'
+    after = data
+
+  # 打开文件并覆盖写入修改后内容
+  with open(filepath, 'w') as f:
+    #结构化写入到文件中
+    data = json.dump(after, f, sort_keys=True, indent=4, separators=(',', ': '))
+```
+
+原文件内容
+```json
+{
+  "MaskPolygonItem": {
+    "0": {
+      "BoundingBox": "354.105 221.957 379.764 96.2241",
+      "label": "Number",
+      "labelNum": 0,
+      "polygon": "3,6"
+    }
+  },
+  "channels": 3,
+  "height": 1080,
+  "width": 1920
+}
+```
+
+修改后的内容
+```json
+{
+  "MaskPolygonItem": {
+    "0": {
+      "BoundingBox": "354.105 221.957 379.764 96.2241",
+      "label": "Number",
+      "labelNum": 0,
+      "polygon": "354 221,355 310,729 318,733 236"
+    }
+  },
+  "channels": 3,
+  "height": 1080,
+  "width": 1920
+}
+```
+
 
 
 
