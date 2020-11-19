@@ -21,10 +21,10 @@ app.config.from_object('app.config.settings')
 register_web_blueprint(app)
 
 #def create_app():
-#	app = Flask(__name__)
-#	app.config.from_object('app.config.secure')
-#	app.config.from_object('app.config.settings')
+#    app = Flask(__name__)
+#    app.config.from_object('app.config.secure')
+#    app.config.from_object('app.config.settings')
 
-#	register_web_blueprint(app)
+#    register_web_blueprint(app)
 
-#	return app
+#    return app
