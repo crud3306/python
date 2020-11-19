@@ -24,7 +24,7 @@ register_web_blueprint(app)
 #	app = Flask(__name__)
 #	app.config.from_object('app.config.secure')
 #	app.config.from_object('app.config.settings')
-    
-#    return app
 
-    # register_web_blueprint(app)
+#	register_web_blueprint(app)
+
+#	return app
